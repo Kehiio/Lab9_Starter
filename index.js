@@ -16,13 +16,13 @@ let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 // console log functionality
 let logButton = document.querySelector('#log-btn');
 logButton.addEventListener('click', e => {
-    console.log("Console Log");
+    console.log("Console Log Demo");
 });
 
 // console error functionality
 let errorButton = document.querySelector('#error-btn');
 errorButton.addEventListener('click', e => {
-    console.error("Console Error");
+    console.error("Console Error Demo");
 });
 
 // console count functionality
@@ -53,5 +53,70 @@ clearButton.addEventListener('click', e => {
 });
 
 // console dir
-//let dirButton = document.querySelector('#dir-btn');
+let dirButton = document.querySelector('#dir-btn');
+dirButton.addEventListener('click', e => {
+    console.dir(document.head);
+});
+
+// console dirxml
+let dirXMLButton = document.querySelector('#dirxml-btn');
+dirXMLButton.addEventListener('click', e => {
+    console.dirxml(document.head);
+});
+
+// console group start
+let groupStartButton = document.querySelector('#group-start-btn');
+groupStartButton.addEventListener('click', e => {
+    console.group('example');
+});
+
+// console group end
+let groupEndButton = document.querySelector('#group-end-btn');
+groupEndButton.addEventListener('click', e => {
+    console.groupEnd('example');
+});
+
+// console table
+var exampleData = [
+    {
+        first: 'Kelly',
+        last: 'Dempster'
+    },
+    {
+        first: 'Marie',
+        last: 'Morales'
+    },
+    {
+        first: 'Tyeson',
+        last: 'Nguyen'
+    }
+];
+let tableButton = document.querySelector('#table-btn');
+tableButton.addEventListener('click', e => {
+    console.table(exampleData);
+});
+
+// Timer start
+let timerStartButton = document.querySelector('#timer-start-btn');
+timerStartButton.addEventListener('click', e => {
+    console.time('Example Timer');
+});
+
+// Timer end
+let timerEndButton = document.querySelector('#timer-end-btn');
+timerEndButton.addEventListener('click', e => {
+    console.timeEnd('Example Timer');
+});
+
+// Console trace
+let traceButton = document.querySelector('#trace-btn');
+
+// Trace example
+traceButton.addEventListener('click', e => {
+    const E1 = () => { E2(); };
+    const E2 = () => { E3(); };
+    const E3 = () => { E4(); };
+    const E4 = () => { console.trace(); };
+    E1();
+});
 

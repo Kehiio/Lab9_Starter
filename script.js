@@ -7,7 +7,6 @@ class NaNError extends Error{
 }
 
 
-
 /* Caluclator Functionality */
 let form = document.querySelector('form');
 form.addEventListener('submit', e => {
@@ -36,6 +35,9 @@ form.addEventListener('submit', e => {
             console.error("Unexpected error: ", error);
         }
         
+    }
+    finally{
+        console.log("Calculator output complete.");
     }
 
 });

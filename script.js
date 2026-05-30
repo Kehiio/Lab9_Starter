@@ -1,3 +1,12 @@
+/* Custom NaN Error class */
+class NaNError extends Error{
+    constructor(message){
+        super(message);
+        this.name = "NaN Error";
+    }
+}
+
+
 
 /* Caluclator Functionality */
 let form = document.querySelector('form');
@@ -7,7 +16,28 @@ form.addEventListener('submit', e => {
     let firstNum = document.querySelector('#first-num').value;
     let secondNum = document.querySelector('#second-num').value;
     let operator = document.querySelector('#operator').value;
-    output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+
+    try {
+        if ( isNaN(firstNum) || isNaN(secondNum)){
+            throw new NaNError();
+        }
+
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+    }
+    catch (error)
+    {
+        if (error instanceof NaNError){
+            console.error('Non-number string passed.')
+        }
+        else if (error instanceof ReferenceError || error instanceof TypeError){
+            console.error('Invalid type passed');
+        }
+        else{
+            console.error("Unexpected error: ", error);
+        }
+        
+    }
+
 });
 
 // list of all error buttons

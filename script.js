@@ -164,5 +164,4 @@ window.onerror = function (message, source, lineno, colno, error) {
     console.log("GLOBAL ERROR CAUGHT:");
     console.log(lineno);
     console.log(message);
-
 }

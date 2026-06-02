@@ -8,6 +8,7 @@ class NaNError extends Error{
 
 
 /* Caluclator Functionality */
+// Try/catch with custom NaN error type
 let form = document.querySelector('form');
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -152,3 +153,15 @@ traceButton.addEventListener('click', e => {
     E1();
 });
 
+// Global Error trigger
+let globalErrorButton = document.querySelector('#global-error-btn');
+globalErrorButton.addEventListener('click', e => {
+    console.log(FakeVariable);
+});
+
+// Global error handler
+window.onerror = function (message, source, lineno, colno, error) {
+    console.log("GLOBAL ERROR CAUGHT:");
+    console.log(lineno);
+    console.log(message);
+}

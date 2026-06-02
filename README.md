@@ -5,4 +5,4 @@
 
 
 
-[TrackJS Screenshot()
+![TrackJS Screenshot](TrackJS_Screenshot.png)
